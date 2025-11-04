@@ -1,3 +1,4 @@
+![Google Apps Script CI](https://github.com/sree34u/Narayana_automation/actions/workflows/apps-script-ci.yml/badge.svg)
 > **Note**  
 > This repository is a fork of the original Google Docs automation scripts created by **[Chinmoy Banerjee](https://github.com/ChinmoyBanerjee)** for internal workflow enhancement.  
 > I am extending this project with additional automation utilities and improvements for Google Docs/Apps Script usage.
