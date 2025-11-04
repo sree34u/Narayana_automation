@@ -1,3 +1,15 @@
+> **Note**  
+> This repository is a fork of the original Google Docs automation scripts created by **[Chinmoy Banerjee](https://github.com/ChinmoyBanerjee)** for internal workflow enhancement.  
+> I am extending this project with additional automation utilities and improvements for Google Docs/Apps Script usage.
+
+## Additional Contributions
+I will be adding:
+
+- New formatting and cleanup functions
+- Improved Q&A document automation for [Monthly CA Magazine – Narayana Navigator](https://navigator.narayanaiasacademy.com/monthly-magazine)
+- Utility scripts for Google Workspace workflows
+
+(Original project details continue below 👇)
 # 🧾 Google Docs Cleanup & Formatting Scripts
 
 ## Overview
