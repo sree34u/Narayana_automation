@@ -1,0 +1,30 @@
+name: Google Apps Script CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dev tools
+        run: |
+          npm install --save-dev eslint prettier eslint-plugin-googleappsscript
+
+      - name: Run ESLint
+        run: npx eslint . --ext .js,.gs
+
+      - name: Run Prettier check
+        run: npx prettier --check "**/*.{js,gs}"
