@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -23,8 +25,20 @@ jobs:
         run: |
           npm install --save-dev eslint@8 prettier eslint-plugin-googleappsscript
 
-      - name: Run ESLint
-        run: npx eslint . --ext .js,.gs
+      - name: Run ESLint (with auto-fix)
+        run: npx eslint . --ext .js,.gs --fix
 
-      - name: Run Prettier check
-        run: npx prettier --check "**/*.{js,gs}"
+      - name: Run Prettier (with auto-fix)
+        run: npx prettier --write "**/*.{js,gs}"
+
+      - name: Commit changes (if any)
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git config --global user.name "github-actions"
+            git config --global user.email "github-actions@github.com"
+            git add .
+            git commit -m "ci: auto-format code"
+            git push
+          else
+            echo "No changes to commit"
+          fi
