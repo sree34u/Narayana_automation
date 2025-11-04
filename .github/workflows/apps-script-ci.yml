@@ -21,7 +21,7 @@ jobs:
 
       - name: Install dev tools
         run: |
-          npm install --save-dev eslint prettier eslint-plugin-googleappsscript
+          npm install --save-dev eslint@8 prettier eslint-plugin-googleappsscript
 
       - name: Run ESLint
         run: npx eslint . --ext .js,.gs
