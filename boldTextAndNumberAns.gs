@@ -41,14 +41,14 @@ function boldTextAndNumberAns() {
     var text = paragraph.getText();
 
     // === Step 1: Bold text before each colon ===
-    var colonIndex = text.indexOf(':');
+    var colonIndex = text.indexOf(":");
     while (colonIndex !== -1) {
-      if (colonIndex > 0) { 
+      if (colonIndex > 0) {
         // Bold characters from start up to (but not including) the colon
         paragraph.editAsText().setBold(0, colonIndex - 1, true);
       }
       // Look for the next colon
-      colonIndex = text.indexOf(':', colonIndex + 1);
+      colonIndex = text.indexOf(":", colonIndex + 1);
     }
 
     // === Step 2: Number and bold each "Ans:" ===
@@ -62,7 +62,13 @@ function boldTextAndNumberAns() {
       var updatedAnsIndex = newText.indexOf(ansCounter + ". Ans:");
 
       // Bold everything up to and including "Ans:"
-      paragraph.editAsText().setBold(0, updatedAnsIndex + ("Ans:".length + ansCounter.toString().length + 2), true);
+      paragraph
+        .editAsText()
+        .setBold(
+          0,
+          updatedAnsIndex + ("Ans:".length + ansCounter.toString().length + 2),
+          true
+        );
 
       // Increment counter for next answer
       ansCounter++;

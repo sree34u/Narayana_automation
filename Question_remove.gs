@@ -31,7 +31,7 @@ function removeContentAboveAnsAndAfterReference() {
   var doc = DocumentApp.getActiveDocument();
   var body = doc.getBody();
   var paragraphs = body.getParagraphs();
- 
+
   var isInsideQuestionBlock = false;
   var contentToKeep = [];
 
@@ -74,5 +74,5 @@ function removeContentAboveAnsAndAfterReference() {
   }
 
   // Replace document text with cleaned-up content
-  body.setText(contentToKeep.join('\n'));
+  body.setText(contentToKeep.join("\n"));
 }
